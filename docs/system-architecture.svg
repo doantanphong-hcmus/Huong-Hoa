@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="980" viewBox="0 0 1400 980" role="img" aria-labelledby="title desc">
+  <title id="title">Genealogy App Architecture and Flow</title>
+  <desc id="desc">Architecture overview and request flow between Frontend, Backend, and PostgreSQL database.</desc>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f4f7fb"/>
+      <stop offset="100%" stop-color="#e9eef7"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f7faff"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto-start-reverse">
+      <path d="M0,0 L12,6 L0,12 z" fill="#2e4a7d"/>
+    </marker>
+    <style>
+      .title { font: 700 34px 'Helvetica Neue', Helvetica, Arial, sans-serif; fill: #1b2b4b; }
+      .subtitle { font: 600 20px 'Helvetica Neue', Helvetica, Arial, sans-serif; fill: #24406f; }
+      .label { font: 600 16px 'Helvetica Neue', Helvetica, Arial, sans-serif; fill: #1f3258; }
+      .small { font: 500 13px 'Helvetica Neue', Helvetica, Arial, sans-serif; fill: #334f80; }
+      .note { font: 500 14px 'Helvetica Neue', Helvetica, Arial, sans-serif; fill: #294675; }
+      .box { fill: #ffffff; stroke: #32558f; stroke-width: 2; rx: 14; }
+      .box-soft { fill: #fdfefe; stroke: #5d7fb6; stroke-width: 1.7; rx: 12; }
+      .db { fill: #eef4ff; stroke: #2f5491; stroke-width: 2; }
+      .panel { fill: url(#panel); stroke: #c4d3ec; stroke-width: 1.5; }
+      .line { stroke: #2e4a7d; stroke-width: 2.4; fill: none; marker-end: url(#arrow); }
+      .line-dashed { stroke: #4668a3; stroke-width: 2; fill: none; stroke-dasharray: 8 6; marker-end: url(#arrow); }
+      .chip { fill: #dce8ff; stroke: #5c7db6; stroke-width: 1.2; rx: 9; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1400" height="980" fill="url(#bg)"/>
+
+  <text x="700" y="58" text-anchor="middle" class="title">Genealogy App - Sơ đồ kiến trúc và luồng xử lý</text>
+  <text x="700" y="89" text-anchor="middle" class="note">Frontend (React + Vite) - Backend (NestJS) - Database (PostgreSQL + TypeORM)</text>
+
+  <rect x="40" y="120" width="1320" height="360" class="panel" rx="18"/>
+  <text x="70" y="160" class="subtitle">1. Architecture Overview</text>
+
+  <rect x="90" y="220" width="220" height="110" class="box"/>
+  <text x="200" y="260" text-anchor="middle" class="label">User Browser</text>
+  <text x="200" y="286" text-anchor="middle" class="small">Người dùng thao tác với UI</text>
+
+  <rect x="380" y="205" width="250" height="140" class="box"/>
+  <text x="505" y="248" text-anchor="middle" class="label">Frontend</text>
+  <text x="505" y="273" text-anchor="middle" class="small">React + Vite + TypeScript</text>
+  <rect x="430" y="292" width="150" height="28" class="chip"/>
+  <text x="505" y="311" text-anchor="middle" class="small">Axios / Fetch API</text>
+
+  <rect x="700" y="185" width="330" height="180" class="box"/>
+  <text x="865" y="220" text-anchor="middle" class="label">Backend (NestJS)</text>
+
+  <rect x="730" y="236" width="270" height="34" class="box-soft"/>
+  <text x="865" y="258" text-anchor="middle" class="small">Controller Layer (MembersController)</text>
+
+  <rect x="730" y="280" width="270" height="34" class="box-soft"/>
+  <text x="865" y="302" text-anchor="middle" class="small">Service Layer (MembersService)</text>
+
+  <rect x="730" y="324" width="270" height="34" class="box-soft"/>
+  <text x="865" y="346" text-anchor="middle" class="small">Repository Layer (TypeORM)</text>
+
+  <g transform="translate(1110,200)">
+    <ellipse cx="120" cy="28" rx="95" ry="28" class="db"/>
+    <rect x="25" y="28" width="190" height="108" class="db"/>
+    <ellipse cx="120" cy="136" rx="95" ry="28" class="db"/>
+    <text x="120" y="84" text-anchor="middle" class="label">PostgreSQL</text>
+    <text x="120" y="109" text-anchor="middle" class="small">members, relations...</text>
+  </g>
+
+  <path d="M310 275 L380 275" class="line"/>
+  <text x="345" y="264" text-anchor="middle" class="small">UI events</text>
+
+  <path d="M630 275 L700 275" class="line"/>
+  <text x="665" y="264" text-anchor="middle" class="small">HTTP JSON</text>
+
+  <path d="M1030 275 L1135 275" class="line"/>
+  <text x="1082" y="264" text-anchor="middle" class="small">ORM query</text>
+
+  <path d="M1135 315 L1030 315" class="line-dashed"/>
+  <text x="1082" y="335" text-anchor="middle" class="small">query result</text>
+
+  <path d="M700 320 L630 320" class="line-dashed"/>
+  <text x="665" y="340" text-anchor="middle" class="small">JSON response</text>
+
+  <path d="M380 320 L310 320" class="line-dashed"/>
+  <text x="345" y="340" text-anchor="middle" class="small">render update</text>
+
+  <rect x="40" y="510" width="1320" height="420" class="panel" rx="18"/>
+  <text x="70" y="550" class="subtitle">2. Request Flow (CRUD Example)</text>
+
+  <rect x="90" y="600" width="180" height="64" class="box"/>
+  <text x="180" y="638" text-anchor="middle" class="label">1. User Action</text>
+
+  <rect x="310" y="600" width="190" height="64" class="box"/>
+  <text x="405" y="628" text-anchor="middle" class="label">2. Frontend</text>
+  <text x="405" y="648" text-anchor="middle" class="small">POST /members</text>
+
+  <rect x="540" y="600" width="190" height="64" class="box"/>
+  <text x="635" y="628" text-anchor="middle" class="label">3. Controller</text>
+  <text x="635" y="648" text-anchor="middle" class="small">validate DTO</text>
+
+  <rect x="770" y="600" width="190" height="64" class="box"/>
+  <text x="865" y="628" text-anchor="middle" class="label">4. Service</text>
+  <text x="865" y="648" text-anchor="middle" class="small">business logic</text>
+
+  <rect x="1000" y="600" width="190" height="64" class="box"/>
+  <text x="1095" y="628" text-anchor="middle" class="label">5. TypeORM</text>
+  <text x="1095" y="648" text-anchor="middle" class="small">save/find/update</text>
+
+  <g transform="translate(1225,586)">
+    <ellipse cx="70" cy="22" rx="52" ry="22" class="db"/>
+    <rect x="18" y="22" width="104" height="56" class="db"/>
+    <ellipse cx="70" cy="78" rx="52" ry="22" class="db"/>
+    <text x="70" y="55" text-anchor="middle" class="small">DB</text>
+  </g>
+
+  <path d="M270 632 L310 632" class="line"/>
+  <path d="M500 632 L540 632" class="line"/>
+  <path d="M730 632 L770 632" class="line"/>
+  <path d="M960 632 L1000 632" class="line"/>
+  <path d="M1190 632 L1242 632" class="line"/>
+
+  <path d="M1242 704 L1185 704" class="line-dashed"/>
+  <path d="M1185 736 L960 736" class="line-dashed"/>
+  <path d="M960 768 L730 768" class="line-dashed"/>
+  <path d="M730 800 L500 800" class="line-dashed"/>
+  <path d="M500 832 L270 832" class="line-dashed"/>
+
+  <rect x="90" y="700" width="390" height="190" class="box-soft"/>
+  <text x="110" y="730" class="label">Read Flow (GET /members)</text>
+  <text x="110" y="758" class="small">- Frontend gửi request lấy danh sách</text>
+  <text x="110" y="782" class="small">- Backend query DB va tra JSON data</text>
+  <text x="110" y="806" class="small">- Frontend render bảng/ danh sách</text>
+
+  <rect x="530" y="700" width="390" height="190" class="box-soft"/>
+  <text x="550" y="730" class="label">Write Flow (POST/PATCH/DELETE)</text>
+  <text x="550" y="758" class="small">- Controller validate input DTO</text>
+  <text x="550" y="782" class="small">- Service xử lý rule nghiệp vụ</text>
+  <text x="550" y="806" class="small">- Repository ghi dữ liệu vào PostgreSQL</text>
+
+  <rect x="970" y="700" width="320" height="190" class="box-soft"/>
+  <text x="990" y="730" class="label">Response Principle</text>
+  <text x="990" y="758" class="small">- Trả về kết quả success + data/error</text>
+  <text x="990" y="782" class="small">- Frontend cập nhật UI theo kết quả</text>
+  <text x="990" y="806" class="small">- Tách biệt rõ UI, logic, persistence</text>
+</svg>

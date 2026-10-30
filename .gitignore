@@ -1,0 +1,82 @@
+# OS metadata
+.DS_Store
+**/.DS_Store
+._*
+**/._*
+.AppleDouble
+**/.AppleDouble
+.LSOverride
+**/.LSOverride
+__MACOSX
+**/__MACOSX/
+.Trashes
+**/.Trashes
+.Spotlight-V100
+**/.Spotlight-V100
+.fseventsd
+**/.fseventsd
+
+# Editor / IDE
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.swo
+*.tmp
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Environment files
+.env
+.env.*
+!.env.example
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build outputs
+dist/
+**/dist/
+dist-ssr/
+build/
+**/build/
+coverage/
+**/coverage/
+.nyc_output/
+.cache/
+.parcel-cache/
+.vite/
+**/.vite/
+*.tsbuildinfo
+
+# Temporary files
+.tmp/
+.temp/
+pids/
+*.pid
+*.seed
+*.pid.lock
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Local dev files
+*.local
