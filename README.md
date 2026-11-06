@@ -1,4 +1,4 @@
-# Dự án SE - Quản lý thành viên trong gia đình 
+# Dự án SE - Quản lý thành viên trong gia đình
 
 ## Mục tiêu dự án
 
@@ -11,7 +11,7 @@ Dự án này xây dựng một hệ thống quản lý thành viên trong gia �
 
 Mục tiêu chính là xây dựng một ứng dụng có thể:
 
-- hiển thị danh sách thành viên 
+- hiển thị danh sách thành viên
 - thêm, sửa, xoá thành viên
 - gọi API từ frontend đến backend
 - quản lý dữ liệu rõ ràng, mở rộng dễ dàng
@@ -88,6 +88,49 @@ Backend thường chạy ở:
 ```text
 http://localhost:3000
 ```
+
+### 4. Chạy dự án bằng Docker
+
+Yêu cầu trước khi chạy:
+
+- Cài đặt Docker Desktop hoặc Docker Engine
+- Cài đặt Docker Compose
+
+Khởi động toàn bộ stack (database, backend, frontend):
+
+```bash
+docker compose up --build
+```
+
+Sau khi container khởi động xong, truy cập:
+
+```text
+Frontend: http://localhost:5173
+Backend:  http://localhost:3000
+Database: postgres://postgres:postgres@localhost:5432/genealogy_db
+```
+
+Nếu muốn chạy nền và bỏ qua log theo dõi:
+
+```bash
+docker compose up -d --build
+```
+
+Xem log của service:
+
+```bash
+docker compose logs -f server
+docker compose logs -f client
+docker compose logs -f db
+```
+
+Dừng và xoá container cùng volume dữ liệu:
+
+```bash
+docker compose down -v
+```
+
+> Lưu ý: lệnh `docker compose down -v` sẽ xoá dữ liệu PostgreSQL đã lưu trong volume, nên dùng khi muốn reset hoàn toàn môi trường local.
 
 ## Tài liệu phụ
 
