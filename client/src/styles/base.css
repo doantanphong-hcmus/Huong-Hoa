@@ -1,0 +1,64 @@
+@font-face {
+  font-family: "Be Vietnam Pro";
+  src: url("../assets/fonts/be-vietnam-pro-400.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Be Vietnam Pro";
+  src: url("../assets/fonts/be-vietnam-pro-500.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Be Vietnam Pro";
+  src: url("../assets/fonts/be-vietnam-pro-600.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lora";
+  src: url("../assets/fonts/lora-500.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lora";
+  src: url("../assets/fonts/lora-400-italic.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lora";
+  src: url("../assets/fonts/lora-500-italic.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+}
+
+:root {
+  color: #344b24;
+  background: #fbf5e7;
+  font-family: "Be Vietnam Pro", Arial, sans-serif;
+  font-synthesis: none;
+  --green: #344b24;
+  --cream: #fbf5e7;
+  --gold: #a8894e;
+}
+
+* { box-sizing: border-box; }
+html { scroll-snap-type: y mandatory; scroll-padding-top: 92px; }
+html.is-programmatic-scroll { scroll-snap-type: none; }
+body { margin: 0; min-width: 320px; background: radial-gradient(circle at 60% 20%, #fffaf0, var(--cream) 68%); }
+button { color: inherit; font: inherit; }
+button:focus-visible { outline: 2px solid #b58b45; outline-offset: 4px; }

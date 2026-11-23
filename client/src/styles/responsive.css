@@ -1,0 +1,134 @@
+@media (max-width: 1300px) {
+  html { scroll-padding-top: 67px; }
+  .header { height: 67px; grid-template-columns: 400px 1fr 399px; }
+  .brand { padding-left: 61px; }
+  .brand__name { font-size: 29px; letter-spacing: -1.6px; white-space: nowrap; }
+  .brand__rule { height: 30px; margin: 0 13px; }
+  .brand__tagline { font-size: 10px; letter-spacing: 2.3px; }
+  .nav { gap: 25px; }
+  .nav button { padding: 24px 0 6px; font-size: 12px; letter-spacing: 1.2px; }
+  .nav__dropdown img { width: 12px; height: 12px; }
+  .header__actions { padding: 0 48px 0 58px; grid-template-columns: 116px 108px 32px; gap: 19px; }
+  .button { height: 38px; border-radius: 7px; padding: 0 13px; font-size: 13px; }
+  .button--primary { min-width: 116px; }
+  .button--outline { min-width: 108px; }
+  .header__search img { width: 21px; height: 21px; }
+
+  main { padding-top: 67px; }
+  .showcase__sticky { top: 67px; height: calc(100svh - 67px); }
+  .scene--cover { padding: 22px 40px 29px; }
+  .scene--split { padding: 44px 39px 40px; }
+  .hero { max-width: 1201px; }
+  .hero--cover, .split-image-wrap { border-radius: 18px; }
+  .cover-copy { left: 195px; top: 114px; width: 433px; }
+  .cover-copy__eyebrow { margin-bottom: 15px; gap: 18px; font-size: 12px; letter-spacing: 5px; }
+  .cover-copy__eyebrow span { width: 34px; }
+  .cover-copy h1 { font-size: 55px; letter-spacing: -1.4px; }
+  .cover-copy__ornament { margin: 4px 0 11px; gap: 12px; font-size: 19px; }
+  .cover-copy__ornament span { width: 47px; }
+  .cover-copy > p:last-child { font-size: 16px; }
+
+  .split-copy { padding: 30px 58px 0 28px; }
+  .split-copy__eyebrow { gap: 14px; margin-bottom: 28px; font-size: 11px; letter-spacing: 3.6px; }
+  .split-copy__eyebrow span { min-width: 126px; }
+  .split-copy__eyebrow i { width: 273px; }
+  .split-copy h1 { margin-bottom: 40px; font-size: 53px; }
+  .split-copy > p { margin-bottom: 24px; font-size: 15px; }
+  .story-action { height: 38px; border-radius: 7px; padding: 0 17px; font-size: 13px; }
+  .hero--story-2 .story-action { width: 179px; }
+  .hero--story-3 .story-action { width: 200px; }
+  .hero--story-4 .story-action { width: 221px; }
+  .story-action img { width: 18px; height: 18px; }
+  .pagination { left: 29px; bottom: 6px; width: 427px; }
+  .pagination > span { width: 36px; height: 36px; font-size: 12px; }
+  .pagination--light { left: 30px; bottom: 16px; width: 424px; }
+  .showcase__sticky > .pagination { left: 68px; bottom: 46px; width: 425px; }
+
+  .footer-view { height: calc(100svh - 67px); }
+  .footer__panorama { height: 277px; }
+  .footer { height: 296px; padding: 23px 76px 22px; border-top-width: 4px; }
+  .footer__grid { grid-template-columns: 310px 206px 200px 200px 213px; max-width: 1129px; }
+  .footer__intro { padding-right: 40px; }
+  .footer__brand { font-size: 31px; }
+  .footer__tagline { margin-top: 11px; font-size: 10px; letter-spacing: 4.3px; }
+  .footer__intro p { margin: 16px 0; font-size: 13px; }
+  .socials { gap: 17px; }
+  .socials button { width: 30px; height: 30px; border-radius: 6px; }
+  .socials img { width: 18px; }
+  .footer__column { padding-left: 36px; gap: 12px; }
+  .footer__column:last-child { padding-left: 39px; }
+  .footer__column h2 { margin-bottom: 6px; font-size: 21px; }
+  .footer__column button, .contact { font-size: 12px; }
+  .contact { gap: 14px; }
+  .contact img { width: 17px; }
+  .footer__copyright { max-width: 878px; margin-top: 27px; padding-top: 14px; font-size: 11px; }
+  .footer::after { width: 498px; height: 126px; background-size: 1280px 640px; }
+
+}
+
+@media (max-width: 900px) {
+  .header { height: 75px; grid-template-columns: 1fr auto; }
+  html { scroll-padding-top: 75px; }
+  .brand { border: 0; padding-left: 20px; }
+  .brand__name { font-size: 35px; }
+  .brand__rule, .brand__tagline, .button, .header__search { display: none; }
+  .header__actions { border: 0; padding: 0 16px; display: flex; grid-template-columns: none; }
+  .header__menu { display: grid; }
+  .nav { display: none; position: absolute; left: 0; right: 0; top: 75px; height: auto; padding: 25px; background: var(--cream); border-bottom: 1px solid #bca979; flex-direction: column; align-items: stretch; gap: 3px; }
+  .nav--open { display: flex; }
+  .nav button { padding: 13px; border-bottom: 0 !important; text-align: left; justify-content: space-between; }
+  main { padding-top: 75px; }
+  .showcase { height: 400svh; }
+  .showcase__sticky { top: 75px; height: calc(100svh - 75px); }
+  .scene--cover, .scene--split { padding: 16px; }
+  .hero { height: auto; min-height: calc(100svh - 107px); }
+  .hero--cover { min-height: 680px; }
+  .hero__cover-image { position: absolute; inset: 0; }
+  .hero__shade { background: linear-gradient(180deg, rgba(11,20,8,.12), rgba(11,20,8,.76)); }
+  .cover-copy { left: 25px; right: 25px; top: auto; bottom: 125px; width: auto; }
+  .cover-copy h1 { font-size: clamp(44px, 12vw, 62px); }
+  .cover-copy > p:last-child { font-size: 21px; }
+  .pagination--light { left: 25px; right: 25px; width: auto; }
+  .hero--split { display: flex; flex-direction: column-reverse; overflow: visible; }
+  .split-image-wrap { height: 49svh; min-height: 330px; flex: none; }
+  .split-copy { padding: 34px 10px 90px; }
+  .split-copy__eyebrow { margin-bottom: 25px; }
+  .split-copy__eyebrow span { min-width: 0; }
+  .split-copy__eyebrow i { width: auto; flex: 1; }
+  .split-copy h1 { font-size: clamp(50px, 14vw, 70px); margin-bottom: 22px; transform: none; }
+  .split-copy > p { font-size: 17px; }
+  .pagination { left: 10px; right: 10px; bottom: 12px; }
+  .footer-view { height: auto; min-height: calc(100svh - 75px); }
+  .footer__panorama { height: 260px; }
+  .footer { height: auto; padding: 45px 25px 210px; }
+  .footer__grid { grid-template-columns: 1fr 1fr; gap: 42px 20px; }
+  .footer__intro { grid-column: 1 / -1; border-right: 0; padding-right: 0; }
+  .footer__column { padding-left: 0; }
+  .footer__column:last-child { border: 0; }
+  .footer::after { display: none; }
+  .footer__copyright { margin-top: 50px; }
+}
+
+@media (max-width: 560px) {
+  .cover-copy__eyebrow { font-size: 12px; letter-spacing: 4px; gap: 12px; }
+  .cover-copy__eyebrow span { width: 25px; }
+  .pagination > span { width: 43px; height: 43px; }
+  .footer__grid { grid-template-columns: 1fr; }
+  .footer__intro { grid-column: auto; }
+  .footer__intro br { display: none; }
+  .footer__column { gap: 14px; }
+  .footer__brand { font-size: 45px; }
+  .contact { white-space: normal; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .scene, .pagination > span.is-active { animation: none !important; }
+  .family-scroll__sheet, .family-scroll__roller { transition-duration: 1200ms; }
+  .family-scroll__tie { transition-duration: 280ms; transition-delay: 240ms; }
+}
+
+@keyframes progress-pop {
+  from { opacity: .55; transform: scale(.78); }
+  to { opacity: 1; transform: scale(1.03); }
+}

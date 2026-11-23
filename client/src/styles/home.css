@@ -1,0 +1,54 @@
+.home-page {
+  width: 100%;
+  min-height: 100svh;
+  overflow-x: hidden;
+  color: #24331b;
+  background: #f7f0df;
+}
+.home-stage { position: relative; flex: none; }
+.home-canvas { position: absolute; inset: 0 auto auto 0; width: 1672px; height: 1044px; transform-origin: left top; overflow: hidden; background: #f7f0df; }
+.home-header { height: 92px; display: grid; grid-template-columns: 512px 1fr 337px; align-items: center; border-bottom: 1px solid #a8905b; background: rgba(251, 247, 237, .98); }
+.home-brand { height: 100%; padding-left: 84px; display: flex; align-items: center; }
+.home-brand__name { font-family: "Lora", Georgia, serif; font-size: 40px; font-weight: 500; line-height: 1; letter-spacing: -2.2px; white-space: nowrap; }
+.home-brand__rule { width: 1px; height: 43px; margin: 0 21px 0 18px; background: #b89c62; }
+.home-brand__tagline { color: #6f4b25; font-size: 14px; font-weight: 500; line-height: 1.65; letter-spacing: 4px; white-space: nowrap; }
+.home-nav { height: 100%; display: flex; align-items: stretch; justify-content: center; gap: 57px; }
+.home-nav button { position: relative; border: 0; padding: 4px 0 0; color: #171914; background: transparent; font-family: "Lora", Georgia, serif; font-size: 21px; font-weight: 500; cursor: pointer; white-space: nowrap; }
+.home-nav button::after { content: ""; position: absolute; left: 0; right: 0; bottom: 18px; height: 3px; border-radius: 3px; background: transparent; }
+.home-nav button.is-active { color: #324823; font-weight: 600; }
+.home-nav button.is-active::after { background: #3d5529; }
+.home-account { height: 100%; border-left: 1px solid #b89c62; display: flex; align-items: center; }
+.home-account__bell { width: 70px; height: 100%; padding: 0; border: 0; background: transparent; display: grid; place-items: center; cursor: pointer; }
+.home-account__bell img { width: 31px; height: 31px; }
+.home-account__rule { width: 1px; height: 44px; background: #b89c62; }
+.home-account__profile { height: 100%; min-width: 266px; padding: 0 24px 0 21px; border: 0; background: transparent; display: flex; align-items: center; gap: 14px; color: #11150f; font-size: 18px; cursor: pointer; }
+.home-account__avatar { width: 43px; height: 43px; border-radius: 50%; display: grid; place-items: center; background: #d7b870; }
+.home-account__avatar img { width: 33px; height: 33px; }
+.home-account__chevron { width: 20px; height: 20px; margin-left: auto; }
+.home-content { position: relative; width: 1672px; height: 952px; padding: 0; background-position: center; background-size: 1672px 952px; background-repeat: no-repeat; }
+.home-welcome { position: absolute; left: 86px; top: 93px; width: 500px; }
+.home-family { height: 48px; min-width: 225px; padding: 0 17px 2px 22px; border: 1.5px solid #324823; border-radius: 24px; background: rgba(255, 250, 239, .72); display: inline-flex; align-items: center; justify-content: space-between; gap: 30px; font-family: "Lora", Georgia, serif; font-size: 23px; font-weight: 600; cursor: pointer; }
+.home-family img { width: 19px; height: 19px; }
+.home-welcome > h1 { margin: 5px 0 0; font-family: "Lora", Georgia, serif; font-size: 55px; font-weight: 500; line-height: 1.08; letter-spacing: -2.2px; }
+.home-memorial { margin-top: 88px; }
+.home-memorial__eyebrow { margin: 0 0 38px !important; font-size: 18px !important; font-weight: 500; letter-spacing: 5.3px; }
+.home-memorial h2 { margin: 0 0 22px; font-family: "Lora", Georgia, serif; font-size: 61px; font-weight: 500; line-height: 1; letter-spacing: -2.4px; }
+.home-memorial p { margin: 0 0 11px; color: #161b14; font-size: 21px; line-height: 1.25; }
+.home-plan { width: 267px; height: 57px; margin-top: 26px; padding: 0 20px 1px 31px; border: 0; border-radius: 12px; color: #fffaf0; background: linear-gradient(100deg, #41582c, #344b23); display: flex; align-items: center; justify-content: space-between; font-family: "Lora", Georgia, serif; font-size: 24px; font-weight: 500; cursor: pointer; }
+.home-plan img { width: 26px; height: 26px; filter: brightness(0) invert(1); }
+.home-tasks { position: absolute; top: 121px; right: 42px; width: 355px; }
+.home-date { height: 54px; padding-left: 89px; display: flex; align-items: center; gap: 19px; color: #3b4f29; font-family: "Lora", Georgia, serif; font-size: 26px; font-style: italic; white-space: nowrap; }
+.home-date img { width: 43px; height: 43px; filter: invert(57%) sepia(85%) saturate(829%) hue-rotate(3deg) brightness(89%); }
+.home-task-card { margin-top: 104px; }
+.home-task-card h2 { margin: 0 0 23px; font-family: "Lora", Georgia, serif; font-size: 43px; font-weight: 600; letter-spacing: -1.2px; }
+.home-task-list { border-bottom: 1px solid rgba(78, 73, 50, .25); }
+.home-task { width: 100%; min-height: 88px; padding: 14px 4px 13px 7px; border: 0; border-top: 1px solid rgba(78, 73, 50, .25); background: transparent; display: grid; grid-template-columns: 43px 1fr; column-gap: 17px; align-items: start; color: #171a15; text-align: left; cursor: pointer; }
+.home-task:first-child { border-top: 0; }
+.home-task__box { width: 30px; height: 30px; margin-top: 3px; border: 2px solid #3b512a; border-radius: 7px; background: rgba(255,255,255,.25); }
+.home-task__copy { display: flex; flex-direction: column; gap: 3px; }
+.home-task__copy strong { font-size: 20px; font-weight: 500; line-height: 1.25; }
+.home-task__copy small { color: #77766d; font-size: 18px; line-height: 1.25; }
+.home-task.is-complete .home-task__box { background: #3b512a; box-shadow: inset 0 0 0 7px #eef0df; }
+.home-task.is-complete .home-task__copy { opacity: .55; text-decoration: line-through; }
+.home-task-more { margin-top: 29px; padding: 0 0 5px; border: 0; border-bottom: 1px solid #3b512a; background: transparent; display: inline-flex; align-items: center; gap: 15px; font-family: "Lora", Georgia, serif; font-size: 21px; font-weight: 600; cursor: pointer; }
+.home-task-more img { width: 26px; height: 26px; }
