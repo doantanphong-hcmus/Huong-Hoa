@@ -26,15 +26,18 @@ interface AuthFieldProps {
   label: string
   type?: HTMLInputTypeAttribute
   placeholder: string
+  value: string
+  onChange: (value: string) => void
 }
 
-function AuthField({ label, type = 'text', placeholder }: AuthFieldProps) {
+function AuthField({ label, type = 'text', placeholder, value, onChange }: AuthFieldProps) {
+  const [showPassword, setShowPassword] = useState(false)
   return (
     <label className="auth-field">
       <span>{label}</span>
       <span className="auth-field__control">
-        <input type={type} placeholder={placeholder} />
-        {type === 'password' && <button type="button" tabIndex={-1} aria-label="Hiện mật khẩu"><EyeIcon /></button>}
+        <input type={type === 'password' && showPassword ? 'text' : type} placeholder={placeholder} value={value} onChange={(event) => onChange(event.target.value)} required />
+        {type === 'password' && <button type="button" onClick={() => setShowPassword(!showPassword)} aria-label={showPassword ? 'Ẩn mật khẩu' : 'Hiện mật khẩu'}><EyeIcon /></button>}
       </span>
     </label>
   )
@@ -44,12 +47,19 @@ interface AuthPageProps {
   mode: AuthMode
   onHome: () => void
   onSwitch: () => void
-  onSubmit: () => void
+  onSubmit: (email: string, password: string, name: string) => Promise<void>
+  error: string
+  notice: string
 }
 
-export default function AuthPage({ mode, onHome, onSwitch, onSubmit }: AuthPageProps) {
+export default function AuthPage({ mode, onHome, onSwitch, onSubmit, error, notice }: AuthPageProps) {
   const isLogin = mode === 'login'
   const [scale, setScale] = useState(() => Math.min(window.innerWidth / 1672, window.innerHeight / 941))
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [confirmation, setConfirmation] = useState('')
+  const [submitting, setSubmitting] = useState(false)
 
   useEffect(() => {
     document.documentElement.classList.add('auth-is-open')
@@ -75,13 +85,15 @@ export default function AuthPage({ mode, onHome, onSwitch, onSubmit }: AuthPageP
           <section className="auth-panel" aria-labelledby="auth-title">
             <h1 id="auth-title">{isLogin ? 'Đăng nhập' : 'Đăng ký'}</h1>
             <p className="auth-panel__intro">{isLogin ? 'Chào mừng bạn trở về với nếp nhà.' : 'Tạo tài khoản để bắt đầu gìn giữ nếp nhà.'}</p>
-            <form onSubmit={(event) => { event.preventDefault(); onSubmit() }}>
-              {!isLogin && <AuthField label="Họ và tên" placeholder="Nguyễn Văn A" />}
-              <AuthField label="Email" type="email" placeholder="example@gmail.com" />
-              <AuthField label="Mật khẩu" type="password" placeholder="Nhập mật khẩu" />
-              {!isLogin && <AuthField label="Xác nhận mật khẩu" type="password" placeholder="Nhập lại mật khẩu" />}
-              {isLogin && <button className="auth-forgot" type="button">Quên mật khẩu?</button>}
-              <button className="auth-submit" type="submit">{isLogin ? 'Đăng nhập' : 'Đăng ký'}</button>
+            <form onSubmit={async (event) => { event.preventDefault(); if (!isLogin && password !== confirmation) return; setSubmitting(true); try { await onSubmit(email, password, name) } finally { setSubmitting(false) } }}>
+              {!isLogin && <AuthField label="Họ và tên" placeholder="Nguyễn Văn A" value={name} onChange={setName} />}
+              <AuthField label="Email" type="email" placeholder="example@gmail.com" value={email} onChange={setEmail} />
+              <AuthField label="Mật khẩu" type="password" placeholder="Nhập mật khẩu" value={password} onChange={setPassword} />
+              {!isLogin && <AuthField label="Xác nhận mật khẩu" type="password" placeholder="Nhập lại mật khẩu" value={confirmation} onChange={setConfirmation} />}
+              {!isLogin && confirmation && password !== confirmation && <p role="alert">Mật khẩu xác nhận không khớp.</p>}
+              {error && <p role="alert">{error}</p>}
+              {notice && <p role="status">{notice}</p>}
+              <button className="auth-submit" type="submit" disabled={submitting}>{submitting ? 'Đang xử lý…' : isLogin ? 'Đăng nhập' : 'Đăng ký'}</button>
             </form>
             <p className="auth-switch">
               {isLogin ? 'Chưa có tài khoản?' : 'Đã có tài khoản?'}{' '}

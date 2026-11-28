@@ -1,10 +1,8 @@
-import { familyGenerations } from '../src/data/family.ts'
 import { readFile } from 'node:fs/promises'
 
-if (familyGenerations.length !== 3) throw new Error('Family tree must contain three generations')
-if (familyGenerations.flatMap((generation) => generation.members).filter((member) => member.current).length !== 1) throw new Error('Family tree must identify one current member')
-
 const app = await readFile(new URL('../src/features/family/FamilyPage.tsx', import.meta.url), 'utf8')
+const root = await readFile(new URL('../src/app/App.tsx', import.meta.url), 'utf8')
+const migration = await readFile(new URL('../../supabase/migrations/202611280001_mvp_family.sql', import.meta.url), 'utf8')
 const styles = [
   await readFile(new URL('../src/styles/family.css', import.meta.url), 'utf8'),
   await readFile(new URL('../src/styles/print.css', import.meta.url), 'utf8'),
@@ -15,5 +13,6 @@ if (!app.includes('family-title-curve') || !app.includes('familyTitleSize') || !
 if (app.includes('family-tree__pillar')) throw new Error('Decorative pillar must not obstruct the family tree')
 if (!styles.includes('@media print') || !app.includes('family-scroll__backdrop')) throw new Error('Printable family tree layout is missing')
 if (!styles.includes('.family-scroll__roller { display: none !important; }')) throw new Error('Print layout must hide the decorative rollers')
+if (!root.includes('loadFamily()') || !root.includes('saveFamilyMember(member)') || !migration.includes('seed_mvp_family()')) throw new Error('Family storage is not wired')
 
 console.log('family data check passed')
