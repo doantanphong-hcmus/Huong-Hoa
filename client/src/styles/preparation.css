@@ -1,0 +1,64 @@
+.prep-page { width: 100%; min-height: 100svh; overflow-x: hidden; color: #282a24; background: #fbf8f1; }
+.prep-stage { position: relative; }
+.prep-canvas { position: absolute; inset: 0 auto auto 0; width: 1672px; height: 1044px; transform-origin: left top; overflow: hidden; background: #fbf8f1; }
+.prep-header { height: 92px; display: grid; grid-template-columns: 505px 1fr 260px; align-items: center; border-bottom: 1px solid #c7ae7f; background: #fbf8f1; }
+.prep-header .home-brand { padding-left: 61px; }
+.prep-header .home-brand__name { font-size: 50px; letter-spacing: -2.7px; }
+.prep-header .home-brand__rule { height: 46px; margin: 0 24px 0 16px; }
+.prep-header .home-brand__tagline { font-size: 14px; line-height: 1.55; letter-spacing: 1px; font-weight: 600; }
+.prep-nav { height: 100%; display: flex; align-items: stretch; justify-content: center; gap: 61px; }
+.prep-nav button { position: relative; padding: 3px 0 0; border: 0; background: transparent; font-size: 21px; cursor: pointer; white-space: nowrap; }
+.prep-nav button::after { content: ""; position: absolute; left: -5px; right: -5px; bottom: 16px; height: 4px; background: transparent; }
+.prep-nav button.is-active { color: #344527; font-weight: 600; }
+.prep-nav button.is-active::after { background: #344527; }
+.prep-profile { height: 100%; padding: 0 51px 0 0; border: 0; background: transparent; display: flex; align-items: center; gap: 16px; font-size: 20px; cursor: pointer; white-space: nowrap; }
+.prep-profile span { width: 53px; height: 53px; border-radius: 50%; color: #fff; background: #344527; display: grid; place-items: center; font-size: 18px; font-weight: 600; }
+.prep-content { min-height: 952px; padding: 45px 58px 70px; background: #fbf8f1; }
+.prep-back { padding: 0; border: 0; background: transparent; display: flex; align-items: center; gap: 17px; color: #344527; font-size: 20px; cursor: pointer; }
+.prep-back span { border-bottom: 1px solid currentColor; line-height: 1.25; }
+.prep-title-row { height: 139px; display: flex; align-items: center; justify-content: space-between; }
+.prep-title-row h1 { margin: -7px 0 0; color: #344527; font-family: "Lora", Georgia, serif; font-size: 72px; font-weight: 500; line-height: 1; letter-spacing: -2px; }
+.prep-title-row label { display: flex; align-items: center; gap: 31px; font-size: 21px; }
+.prep-title-row select { width: 401px; height: 67px; padding: 0 55px 0 23px; border: 1px solid #344527; border-radius: 8px; color: #292b26; background: #fbf8f1 url("../assets/images/home/icons/chevron-down.svg") calc(100% - 20px) center / 20px no-repeat; appearance: none; font-size: 22px; }
+.prep-tabs { height: 69px; border-bottom: 1px solid #c9a66d; display: flex; align-items: stretch; gap: 60px; }
+.prep-tabs button { position: relative; min-width: 184px; padding: 0 4px 12px; border: 0; background: transparent; font-size: 27px; text-align: left; cursor: pointer; }
+.prep-tabs button.is-active { color: #344527; font-weight: 600; }
+.prep-tabs button.is-active::after { content: ""; position: absolute; left: 0; right: 0; bottom: 7px; height: 4px; background: #344527; }
+.prep-panel { padding-top: 28px; }
+.prep-panel-heading { height: 86px; display: flex; align-items: flex-start; justify-content: space-between; border-bottom: 1px solid #c9a66d; }
+.prep-panel-heading h2 { margin: 5px 0 0; color: #344527; font-family: "Lora", Georgia, serif; font-size: 46px; font-weight: 500; letter-spacing: -1px; }
+.prep-panel-heading > button { width: 244px; height: 58px; border: 0; border-radius: 8px; color: #fff; background: #344527; font-size: 23px; font-weight: 600; cursor: pointer; }
+.prep-task-list { border-bottom: 1px solid #c9a66d; }
+.prep-task { width: 100%; height: 86px; padding: 0 21px; border: 0; border-bottom: 1px solid #c9a66d; background: transparent; display: grid; grid-template-columns: 52px 1fr 30px; align-items: center; text-align: left; cursor: pointer; }
+.prep-task:last-child { border-bottom: 0; }
+.prep-task > i { width: 36px; height: 36px; border: 2px solid #344527; border-radius: 6px; }
+.prep-task > span { display: flex; flex-direction: column; gap: 3px; }
+.prep-task strong { font-size: 26px; font-weight: 600; }
+.prep-task small { color: #777369; font-size: 18px; }
+.prep-task b { color: #344527; font-family: Georgia, serif; font-size: 38px; font-weight: 400; text-align: right; }
+.prep-done-toggle { margin-top: 26px; padding: 0; border: 0; background: transparent; color: #344527; font-family: "Lora", Georgia, serif; font-size: 29px; font-weight: 600; cursor: pointer; }
+.prep-done-toggle span { margin-left: 20px; }
+.prep-done-list { margin-top: 13px; border-bottom: 1px solid #c9a66d; }
+.prep-done-list > div { height: 54px; padding: 0 21px; border-bottom: 1px solid #c9a66d; display: flex; align-items: center; gap: 38px; font-size: 21px; }
+.prep-done-list > div:last-child { border-bottom: 0; }
+.prep-done-list i { width: 36px; height: 36px; border-radius: 5px; color: #fff; background: #425434; display: grid; place-items: center; font-size: 25px; font-style: normal; }
+.prep-guests .prep-panel-heading { height: 93px; }
+.prep-home-list > div, .prep-invited-list > div { height: 74px; padding: 0 0 0 11px; border-bottom: 1px solid #c9a66d; display: grid; grid-template-columns: 1fr 300px 244px; align-items: center; }
+.prep-home-list strong, .prep-invited-list strong { font-size: 27px; font-weight: 600; }
+.prep-home-list button { grid-column: 3; height: 49px; border: 1px solid #344527; border-radius: 8px; color: #344527; background: transparent; font-size: 22px; font-weight: 600; cursor: pointer; }
+.prep-guests > h3 { margin: 24px 0 10px; color: #344527; font-family: "Lora", Georgia, serif; font-size: 32px; font-weight: 600; }
+.prep-invited-list span { font-size: 21px; }
+.prep-invited-list button { padding: 0; border: 0; background: transparent; color: #344527; font-size: 21px; font-weight: 600; text-align: right; cursor: pointer; }
+.prep-toast { position: absolute; right: 42px; bottom: 68px; width: 511px; height: 53px; padding: 0 19px; border: 1px solid #c9a66d; border-radius: 7px; background: #fbf8f1; display: flex; align-items: center; justify-content: space-between; font-size: 17px; box-shadow: 0 8px 28px rgba(54,45,27,.08); }
+.prep-toast button { border: 0; background: transparent; color: #344527; font-weight: 600; cursor: pointer; }
+.prep-modal-backdrop { position: absolute; inset: 0; z-index: 30; background: rgba(59,56,47,.14); display: grid; place-items: center; }
+.prep-modal { width: 618px; padding: 22px 40px 18px; border: 1px solid #c89950; border-radius: 13px; background: #fbf8f1; box-shadow: 0 22px 60px rgba(55,48,35,.12); }
+.prep-modal h2 { margin: 0 0 18px; color: #344527; font-family: "Lora", Georgia, serif; font-size: 46px; font-weight: 600; line-height: 1.15; }
+.prep-modal label { margin-top: 13px; display: flex; flex-direction: column; gap: 9px; font-size: 20px; font-weight: 600; }
+.prep-modal input, .prep-modal select { width: 100%; height: 54px; padding: 0 16px; border: 1px solid #c89950; border-radius: 8px; color: #292b26; background: #fbf8f1; font-size: 22px; outline: none; }
+.prep-modal select { padding-right: 48px; background: #fbf8f1 url("../assets/images/home/icons/chevron-down.svg") calc(100% - 18px) center / 18px no-repeat; appearance: none; }
+.prep-modal input:focus, .prep-modal select:focus { border-color: #344527; box-shadow: 0 0 0 1px #344527; }
+.prep-modal__house { display: block; margin: -6px 0 4px; font-size: 23px; }
+.prep-modal__actions { margin-top: 30px; display: flex; justify-content: flex-end; gap: 18px; }
+.prep-modal__actions button { min-width: 115px; height: 47px; padding: 0 15px; border: 1px solid #344527; border-radius: 8px; color: #344527; background: transparent; font-size: 22px; font-weight: 600; cursor: pointer; }
+.prep-modal__actions button[type="submit"] { min-width: 147px; color: #fff; background: #344527; }

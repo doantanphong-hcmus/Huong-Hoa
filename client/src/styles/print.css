@@ -1,0 +1,39 @@
+@page { size: A4 landscape; margin: 0; }
+
+@media print {
+  html, body, #root { width: 297mm; height: 210mm; margin: 0 !important; overflow: hidden !important; background: #fff !important; }
+  body * { visibility: hidden !important; }
+  .family-scroll, .family-scroll * { visibility: visible !important; }
+  .home-header, .family-toolbar { display: none !important; }
+  .family-page, .family-stage, .family-canvas {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 297mm !important;
+    height: 210mm !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    transform: none !important;
+    background: #fff !important;
+  }
+  .family-content {
+    position: absolute !important;
+    top: 21.45mm !important;
+    left: 0 !important;
+    width: 1672px !important;
+    height: 941px !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    transform: scale(.67137) !important;
+    transform-origin: left top !important;
+    background: #fff !important;
+  }
+  .family-scroll { position: absolute !important; inset: 0 !important; width: 1672px !important; height: 941px !important; overflow: hidden !important; }
+  .family-scroll__sheet { clip-path: inset(0) !important; transition: none !important; }
+  .family-scroll__roller { display: none !important; }
+  .family-scroll__tie { display: none !important; }
+  .family-scroll__backdrop, .family-member, .family-generation > p {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
